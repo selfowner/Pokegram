@@ -1,0 +1,670 @@
+/*
+                    messageContent.setMessageText(AUTODELETE_TEXT+"ZXC");
+                    article.setInputMessageContent(messageContent);
+                    article.setId(Integer.toString(1));
+                    article.setTitle(name);
+                    article.setDescription("chips: " + chips);
+                    resultsList.add(article);
+*/ //autodelete
+
+//=
+
+
+
+
+
+
+// package org.pokedgram;
+
+//public class MsgUtils extends PokedgramBot {
+
+
+/*    public SendSticker messageSendStickerToPlayingRoomTST() {
+
+        SendMessage message = new SendMessage();
+        SendSticker sendSticker = new SendSticker();
+            String currentId = message.getChatId();
+            message.setChatId(PokedgramBot.PLAYING_ROOM_ID);
+            sendSticker.setChatId(ConstStrings.PLAYING_ROOM_ID);
+        try {
+            sendSticker.setSticker(new InputFile(PokedgramBot.STICKER));
+            } catch (NullPointerException e) {
+                System.out.println("exception: " + message);
+            }
+
+        message.setChatId(currentId);
+        return sendSticker;
+
+
+    }*/
+
+/*    public SendMessage messageSendToPlayingRoomTST(String text) {
+        SendMessage message = new SendMessage();
+        message.setChatId(PLAYING_ROOM_ID);
+        message.setText(text);
+        //execute(message);
+        try {
+            Thread.sleep(SLEEP_MS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.out.println("exception: " + e.getMessage() + NEXT_LINE + "message: " + message.getText());
+        }
+
+        return message;
+
+    }
+
+
+    public static SendMessage messageSendToPlayer(String userId, String text) {
+        SendMessage message = new SendMessage();
+//        try {
+        message.setChatId(userId);
+        message.setText(text);
+        //execute(message);
+        //Thread.sleep(SLEEP_MS);
+        //System.out.println("ok: " + message);
+//        } catch (TelegramApiException e) {
+//            //e.printStackTrace();
+//            System.out.println("exception: " + e.getMessage() + NEXT_LINE + "message: " + message.getText());
+//        }
+
+        return message;
+    }
+
+    public static SendMessage messageSendToPlayerBack(String userId, String text) {
+        SendMessage message = new SendMessage();
+        message.setChatId(userId);
+        message.setText(text);
+        //execute(message);
+        //System.out.println("ok: " + message);
+        try {
+            Thread.sleep(SLEEP_MS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.out.println("exception: " + message.getText());
+        }
+        return message;
+
+    }
+
+    public static DeleteMessage messageDelete(Integer messageId) {
+        DeleteMessage deleteMessage = new DeleteMessage();
+        try {
+            deleteMessage.setChatId(PLAYING_ROOM_ID);
+            deleteMessage.setMessageId(messageId);
+            //execute(deleteMessage);
+            Thread.sleep(SLEEP_MS);
+        } catch (NullPointerException | InterruptedException e) {
+            e.printStackTrace();
+            //System.out.println("exception: messageId = " + messageId + "; message: " + message.getText());
+            System.out.println("exception: messageId = " + messageId);
+        }
+        return deleteMessage;
+    }
+
+    public static EditMessageText messageEdit(String newText, Integer messageId) {
+        EditMessageText msg = new EditMessageText();
+        msg.setChatId(PLAYING_ROOM_ID);
+        msg.setMessageId(messageId);
+        String currentText = msg.getText();
+
+        if (currentText != null && currentText.length() > 0) {
+            if (!currentText.equals(newText)) {
+                try {
+                    msg.setText(newText);
+                    //msg.setText(text);
+                    //execute(msg);
+                    //Thread.sleep(SLEEP_MS);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    System.out.println("exception: messageId = " + messageId + "; message: " + msg.getText());
+                }
+            } else {
+                System.out.println("editMessage tried edit same message");
+            }
+        }
+        System.out.println("editMessage msg.getText(); == null");
+        return msg;
+    }
+
+    public static EditMessageText messageEditInc(String newText, Integer messageId) {
+        EditMessageText msg = new EditMessageText();
+        msg.setChatId(PLAYING_ROOM_ID);
+        msg.setMessageId(messageId);
+        String currentText = msg.getText();
+        if (currentText == null || currentText.length() > 0) {
+            currentText = ".";
+        } else {
+            if (!currentText.equals(newText)) {
+
+                msg.setMessageId(messageId);
+                //String currentText = msg.getText();
+                msg.setText(currentText + NEXT_LINE + newText);
+                try {
+                    //execute(msg);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    System.out.println("exception: messageId = " + messageId + "; message: " + msg.getText());
+                }
+            } else {
+                System.out.println("messageEditInc tried edit same message");
+            }
+
+            System.out.println("messageEditInc msg.getText(); == null");
+        }
+        return msg;
+    }*/
+
+
+//}
+
+    //public static final String FIND_FLASH_TABLE_REGEXP = "((.*(♠).*){3}|(.*(♣).*){3}|(.*(♥).*){3}|(.*(♦).*){3})";
+
+    //public static final String DISCARD_SINGLE_CARDS_REGEXP = "^\\{.*([0-9]{1,2}=1, ).*([0-9]{1,2}=1, ).*([0-9]{1,2}=1, ).*([0-9]{1,2}=1, ).*([0-9]{1,2}=1, ).*\\}$";
+
+    //public static final String COLLECT_DISTINCT_VALUES_WO_BRACES_REGEXP = "^.*([1234567890]{1,2}=[234]).*([1234567890]{1,2}=[234]).*([1234567890]{1,2}=[234]).*$"; // without { }
+    //public static final String COLLECT_DISTINCT_VALUES_REGEXP = "^\\{.*([123456789]+=[234]).*\\}$"; //with {}
+    //public static final String COLLECT_DISTINCT_VALUES_REGEXP = "^.*([1234567890]+=[234]).*$"; //with {}
+    //public static final String COUNT_VALUES_REGEXP = "^.*(=).*$";
+
+
+
+
+
+
+
+    //TODO() decide drop this legacy
+    /*static void initializePlayers(int playersQuantity, int playerCardsCount, int playersStartingToken, List deck) {
+
+        Map<Integer, String> playersName = new HashMap<>();
+        Map<Integer, Integer> playersToken = new HashMap<>();
+        HashMap players = new HashMap(playersQuantity);
+
+        for (int i = 0; i < playersQuantity; i++) {
+            playersName.put(i, getUniqueName());
+            playersToken.put(i, playersStartingToken);
+            players.put(i, "Player " + (i + 1));
+            System.out.println("\"" + playersName.get(i) + "\" registered to the tournament! " + playersToken.get(i) + " tokens granted! gl hf :>");
+
+        }
+        System.out.println("initializePlayers OK");
+
+    }*/
+
+//    public static int maxValue(int array[]) {
+//        List<Integer> list = new ArrayList<Integer>();
+//        for (int i = 0; i < array.length; i++) {
+//            list.add(array[i]);
+//        }
+//
+//        return Collections.max(list);
+//
+//
+//    }
+
+//        while (winnerCount > 1) {
+//            for (int y = 0; y < winnerCount; y++) {
+//                if (handHighest > playerHighest) {
+//                    playerHighest = handHighest;
+//                    winnerId = y;
+//                    winnerCount = 1 ;
+//                } else if (handHighest[y] == playerHighest) {
+//                    winnerCount++;
+//                    winnerId = -1;
+//                }
+//
+//            }
+//        }
+//int maxValue = Collections.max(numbers);
+// List<Integer> maxValues = numbers.stream().filter(number -> number == max).collect(Collectors.toList());
+
+
+//List<String> deckSuits = new ArrayList<>(4);
+//deckSuits.addAll(List.of(cardSuits));
+//deckRanks.addAll(List.of(cardRanks));
+//deckRanks.remove(13);
+//from initializeDeck method
+//--
+//class Table {
+//
+//    int bigBlindId;
+//    int potSize;
+//    int seats;
+//    private Boolean preflop = true;
+//    private Boolean flop, turn, river = false;
+//
+//    Boolean[] currentRound = new Boolean[]{preflop, flop, turn, river};
+//
+//
+//}
+
+
+
+            if (winnerCount > 1) {
+//                //find kicker or split reward
+//                gotWinner = true;
+//                break;
+//            } else if (winnerCount == 1) {
+//                //winnerid takes pot
+//                gotWinner = true;
+//                break;
+//            }
+
+
+
+//    InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+//    InlineKeyboardButton buttonFoldPass = new InlineKeyboardButton();
+//    InlineKeyboardButton buttonCheckCall = new InlineKeyboardButton();
+//    //InlineKeyboardButton buttonCall = new InlineKeyboardButton();
+//    InlineKeyboardButton buttonBet = new InlineKeyboardButton();
+//    InlineKeyboardButton buttonBetSize1 = new InlineKeyboardButton();
+//    InlineKeyboardButton buttonBetSize2 = new InlineKeyboardButton();
+//    InlineKeyboardButton buttonBetSize3 = new InlineKeyboardButton();
+//    InlineKeyboardButton buttonBetSize4 = new InlineKeyboardButton();
+//    InlineKeyboardButton buttonBetSize5 = new InlineKeyboardButton();
+//    //InlineKeyboardButton makeMoveButton = new InlineKeyboardButton();
+
+
+
+/*                    tableCards = getCurrentPhaseTableCards(currentPlayerPhase);
+                    moveCount = checkPlayerAllinOrFold(moveCount);
+
+                    if(checkPlayerCallback(update, userIdCallback, moveCount)) {
+                        moveCount++;
+
+                        if(switchPhase(moveCount, players)) {
+                            currentPlayerPhase++;
+                            moveCount=moveCount%players.length;
+                        }
+                        userIdCallback     = "0";
+                        editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards, currentDealMessageId);
+                    }*/
+
+
+
+
+
+
+                    /*                String dealInfoCurrent = "Player order: " + PlayerUtils.getUserRegQueue(players) +
+                                         DOUBLE_NEXTLINE +
+                                         players[ moveCount % players.length ].get(2) + " starting on the button" +
+                                         DOUBLE_NEXTLINE +
+                                         DECK_SHUFFLE_TEXT;*/
+                //messageEditInc(dealInfoCurrent, dealOrderMsg);
+
+                //Integer dealOrderMsg = sendToPlayingRoomAndGetMessageId(dealInfoLast + NEXT_LINE + dealInfoCurrent);
+
+
+
+
+
+/*    static Integer checkOnePair(ArrayList[] players, ArrayList[][] playersCards, ArrayList[] table) {
+        return -1;
+    }
+    static Integer checkTwoPair(ArrayList[] players, ArrayList[][] playersCards, ArrayList[] table) {
+        return -1;
+    }
+    static Integer checkThreeOf(ArrayList[] players, ArrayList[][] playersCards, ArrayList[] table) {
+        return -1;
+    }*/
+
+
+
+//    public static boolean tradePreflopDone = false;
+//    public static boolean tradeFlopDone = false;
+//    public static boolean tradeTurnDone = false;
+//    public static boolean tradeRiverDone = false;
+//    public static boolean isTradePreflopDone = false;
+//    public static boolean isTradeFlopDone = false;
+//    public static boolean isTradeRiverDone = false;
+
+
+
+/*public static String getUniqueName() {
+
+        List<String> strings = new ArrayList<>();
+        strings.add("Aleksandr");
+        strings.add("Aleksej");
+        strings.add("Andrej");
+        strings.add("Artem");
+        strings.add("Viktor");
+        strings.add("Daniil");
+        strings.add("Dmitrij");
+        strings.add("Egor");
+        strings.add("Ilya");
+        strings.add("Kirill");
+        strings.add("Maksim");
+        strings.add("Mark");
+        strings.add("Mihail");
+        strings.add("Roman");
+        strings.add("Stepan");
+        strings.add("Timofej");
+        strings.add("Jaroslav");
+        strings.add("Bendzhamin");
+        strings.add("Dzhejdan");
+        strings.add("Dzhejkob");
+        strings.add("Dzhejms");
+        strings.add("Dzhek");
+        strings.add("Itan");
+        strings.add("Liam");
+        strings.add("Logan");
+        strings.add("Lukas");
+        strings.add("Mejson");
+        strings.add("Mjetju");
+        strings.add("Noi");
+        strings.add("Oliver");
+        strings.add("Ouen");
+        strings.add("Rajan");
+        strings.add("Jelija");
+        strings.add("Aleksandr");
+        strings.add("Viljam");
+        strings.add("Dzhejdan");
+        strings.add("Dzhejkob");
+        strings.add("Dzhekson");
+        strings.add("Diego");
+        strings.add("Dilan");
+        strings.add("Djevid");
+        strings.add("Djeniel");
+        strings.add("Itan");
+        strings.add("Liam");
+        strings.add("Luis");
+        strings.add("Majkl");
+        strings.add("Noi");
+        strings.add("Sebastjan");
+        strings.add("Jedrian");
+        strings.add("Jelija");
+        strings.add("Amir");
+        strings.add("Arsenij");
+        strings.add("Artem");
+        strings.add("Artur");
+        strings.add("Damir");
+        strings.add("Danil");
+        strings.add("Egor");
+        strings.add("Kamil");
+        strings.add("Karim");
+        strings.add("Kirill");
+        strings.add("Maksim");
+        strings.add("Marat");
+        strings.add("Radmir");
+        strings.add("Renat");
+        strings.add("Roman");
+        strings.add("Rustam");
+        strings.add("Samir");
+        strings.add("Timur");
+        strings.add("Aleksandra");
+        strings.add("Alisa");
+        strings.add("Anastasija");
+        strings.add("Anna");
+        strings.add("Arina");
+        strings.add("Valerija");
+        strings.add("Varvara");
+        strings.add("Veronika");
+        strings.add("Viktorija");
+        strings.add("Darja");
+        strings.add("Eva");
+        strings.add("Ekaterina");
+        strings.add("Elizaveta");
+        strings.add("Kira");
+        strings.add("Margarita");
+        strings.add("Marija");
+        strings.add("Polina");
+        strings.add("Sofija");
+        strings.add("Taisija");
+        strings.add("Uljana");
+        strings.add("Abigejl");
+        strings.add("Ava");
+        strings.add("Amelija");
+        strings.add("Arija");
+        strings.add("Grejs");
+        strings.add("Zoi");
+        strings.add("Izabella");
+        strings.add("Lili");
+        strings.add("Medison");
+        strings.add("Mija");
+        strings.add("Nora");
+        strings.add("Obri");
+        strings.add("Odri");
+        strings.add("Olivija");
+        strings.add("Skarlet");
+        strings.add("Sofija");
+        strings.add("Harper");
+        strings.add("Hloja");
+        strings.add("Sharlotta");
+        strings.add("Jevelin");
+        strings.add("Jemili");
+        strings.add("Jemma");
+        strings.add("Abigejl");
+        strings.add("Ava");
+        strings.add("Amelija");
+        strings.add("Anna");
+        strings.add("Viktorija");
+        strings.add("Grejs");
+        strings.add("Izabella");
+        strings.add("Medison");
+        strings.add("Mija");
+        strings.add("Natali");
+        strings.add("Olivija");
+        strings.add("Penelopa");
+        strings.add("Sofija");
+        strings.add("Harper");
+        strings.add("Hloja");
+        strings.add("Sharlotta");
+        strings.add("Jevelin");
+        strings.add("Jeveri");
+        strings.add("Jelizabet");
+        strings.add("Jella");
+        strings.add("Jemili");
+        strings.add("Jemma");
+        strings.add("Azalija");
+        strings.add("Alisa");
+        strings.add("Alfija");
+        strings.add("Amelija");
+        strings.add("Amina");
+        strings.add("Arina");
+        strings.add("Asija");
+        strings.add("Valerija");
+        strings.add("Viktorija");
+        strings.add("Gulnaz");
+        strings.add("Darina");
+        strings.add("Zarina");
+        strings.add("Marijam");
+        strings.add("Milana");
+        strings.add("Samira");
+        strings.add("Sofija");
+        strings.add("Polina");
+        strings.add("Ralina");
+        strings.add("Regina");
+        strings.add("Jelvira");
+        strings.add("Jasmina");
+        ArrayList<String> names = new ArrayList<>(strings);
+        int randomNumb = DeckUtils.anyRandomIntRange(0, names.size() - 1);
+
+        String name = names.get(randomNumb);
+
+        names.remove(randomNumb);
+        return name;
+    }*/ //getUniqueName
+
+
+
+
+                       /*                //flop
+                if (currentPlayerPhase == 1) {
+
+                    moveCount = currentTable(update, userIdCallback, moveCount);
+                    */
+                    /*
+                    if (phaseStarted) {
+
+                        moveCount=moveCount%players.length;
+                        phaseStarted = false;
+                    }
+                    moveCount = checkPlayerAllinOrFold(moveCount);
+
+                    if(checkPlayerCallback(update, userIdCallback, moveCount)) {
+                        moveCount = iterateMove(players,moveCount);
+
+                    }
+
+                    if(switchPhase(moveCount, players)) {
+                        currentPlayerPhase++;
+                        unsetAllPlayerPhaseFlag(players, "check flag");
+                        tableCards = getCurrentPhaseTableCards(currentPlayerPhase);
+                        //editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT
+                        // + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards + "999", currentDealMessageId);
+                        phaseStarted = true;
+                    } else { }
+                    editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards, currentDealMessageId);
+*/
+                    /*
+
+
+                }
+
+                //turn
+                if (currentPlayerPhase == 2) {
+                    moveCount =  currentTable(update, userIdCallback, moveCount);
+                    */
+                    /*if (phaseStarted) {
+
+                        moveCount=moveCount%players.length;
+                        phaseStarted = false;
+                    }
+                    moveCount = checkPlayerAllinOrFold(moveCount);
+
+                    if(checkPlayerCallback(update, userIdCallback, moveCount)) {
+                        moveCount = iterateMove(players,moveCount);
+
+                    }
+
+                    if(switchPhase(moveCount, players)) {
+                        currentPlayerPhase++;
+                        unsetAllPlayerPhaseFlag(players, "check flag");
+                        tableCards = getCurrentPhaseTableCards(currentPlayerPhase);
+                        //editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT
+                        // + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards + "999", currentDealMessageId);
+                        phaseStarted = true;
+                    } else { }
+                    editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards, currentDealMessageId);
+
+                }
+
+                //river
+                if (currentPlayerPhase == 3) {
+                    moveCount = currentTable(update, userIdCallback, moveCount);
+
+                    if (phaseStarted) {
+
+                        moveCount=moveCount%players.length;
+                        phaseStarted = false;
+                    }
+                    moveCount = checkPlayerAllinOrFold(moveCount);
+
+                    if(checkPlayerCallback(update, userIdCallback, moveCount)) {
+                        moveCount = iterateMove(players,moveCount);
+
+                    }
+
+                    if(switchPhase(moveCount, players)) {
+                        currentPlayerPhase++;
+                        unsetAllPlayerPhaseFlag(players, "check flag");
+                        tableCards = getCurrentPhaseTableCards(currentPlayerPhase);
+                        //editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT
+                        // + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards + "999", currentDealMessageId);
+                        phaseStarted = true;
+                    } else { }
+                    editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards, currentDealMessageId);
+
+                }*/
+
+
+
+
+
+
+
+//                case "/clearstate":
+//                    if (userId.equals("193873212")) {
+//                        sendToPlayer(userId, "clearstate +");
+//                        sendToPlayingRoom("clearstate command recieved, trying..");
+//
+//                        playersQueue = null;
+//                        registeredPlayers = 0;
+//                        registrationStarted = false;
+//                        preGameStarted = false;
+//                        gameStarted = false;
+//                        exe.shutdown();
+//                        // TODO () clean all
+//                    } else {
+//                        sendToPlayer(userId, "clearstate AFFORMINAVE");
+//                    }
+//                    break;
+//
+//                    case "unreg":
+//                        if (registrationStarted) {
+//
+//                            if (PlayerUtils.checkUserRegExistAndActive(userId, playersQueue, registeredPlayers) >= 0) {
+//                                playersQueue = PlayerUtils.userUnreg(playersQueue, userId);
+//                                registeredPlayers--;
+//                                sendToPlayer(userId, "Unregistered");
+//                            }
+//
+//                        } else {
+//                            sendBack(REG_CLOSED);
+//                        }
+//                        break; //
+// clear and unreg
+
+
+
+/*                    if (Boolean.getBoolean(players[ moveCount % players.length].get(5).toString()) || Boolean.getBoolean(players[ moveCount ].get(6).toString())) {
+                        System.out.println("found fold or allin at " + players[ moveCount % players.length].get(2));
+                        moveCount = moveCount = iterateMove(players, moveCount);
+                    }*/ /*else {
+                        if (update.hasCallbackQuery() && userIdCallback.toString().equals(players[ moveCount % players.length ].get(0).toString())) {
+                            moveCount = extractMove(update,moveCount);
+                            editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + DECK_SHUFFLE_TEXT + DOUBLE_NEXTLINE + CURRENT_POT_TEXT + currentPot + DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)
+                                                   + DOUBLE_NEXTLINE + tableCards, currentDealMessageId);
+
+//                            if (moveCount >= players.length+1 && PlayerUtils.checkBetsEqual(players)) {
+//                                currentPlayerMoveChoice = 4;
+//                                System.out.println("showdown phase rdy");
+//                            }
+
+
+                            userIdCallback = "0";
+                        }
+                        if (update.hasCallbackQuery() && !userIdCallback.toString().equals(players[ moveCount % players.length ].get(0).toString()) && userIdCallback != "0") {
+                            sendToPlayer(userIdCallback, "userId " + userIdCallback + " not matched " + players[ moveCount % players.length ].get(0) + NEXT_LINE +
+                                                         "expecting move from player" + players[ moveCount % players.length ].get(0) + " (" + players[ moveCount % players.length ].get(1) + ")" + NEXT_LINE);
+                            userIdCallback = "0";
+                        }
+                        if (update.hasCallbackQuery() && userIdCallback == "0") {
+                            System.out.println("userIdCallback = " + userIdCallback);
+                        }*/
+
+
+//            case "makemove" -> {
+//
+//                if (currentPlayerMoveChoice != -1) {
+//
+//            }}
+
+            /*case "number" -> {
+                int tempNumber =
+                        Integer.parseInt(update.getCallbackQuery().getData().toLowerCase().replaceAll(BET_REGEXP, "$3"));
+
+                if (tempNumber > 0 && Integer.parseInt(players[ moveCount % players.length ].get(3).toString()) > tempNumber) {
+                    currentPlayerNumberChoice = tempNumber;
+                    System.out.println("player number: " + currentPlayerNumberChoice);
+                }
+                if (tempNumber > 0 && Integer.parseInt(players[ moveCount % players.length ].get(3).toString()) < tempNumber) {
+                    System.out.println("player number less than players balance:  " + currentPlayerNumberChoice);
+                    System.out.println("setting max possible  " + Integer.parseInt(players[ moveCount % players.length ].get(3).toString()));
+                    currentPlayerNumberChoice = Integer.parseInt(players[ moveCount % players.length ].get(3).toString());
+                }
+            }*/
+
+
+//editMessageWithButtons(getRoundAnnounceString(players) + DOUBLE_NEXTLINE + CURRENT_POT_TEXT + currentPot +
+// DOUBLE_NEXTLINE + "current move " + moveCount + ": " + players[ moveCount % players.length ].get(2)+ DOUBLE_NEXTLINE +  tableCards + currentPlayerPhase, currentDealMessageId);
